@@ -1,22 +1,19 @@
-$(document).on('click', 'ul li', function(){
-  $(this).addClass("active").siblings().removeClass("active")
-})
-$(function() {
+(function($) {
   "use strict"; // Start of use strict
   //default slide up and hide cart details
-
+  
   //$("#cart-items").slideUp();
-
+  
   $(".cart").on("click", function() {
     $("#cart-items").slideToggle(); // onn basckaet click show
-
+  
   });
   $(".add-to-cart").on("click", function() {
-   // $("#cart-items").slideDown();
-    /*setTimeout(function() {
-      $("#cart-items").slideUp();
-    }, 2000);*/
-    //add items to basket
+  //  // $("#cart-items").slideDown();
+  //   /*setTimeout(function() {
+  //     $("#cart-items").slideUp();
+  //   }, 2000);*/
+  //   //add items to basket
      $("#cart-items").slideUp();
     $(this).each(function() {
       var name = $(this)
@@ -27,7 +24,7 @@ $(function() {
         .parents(".item")
         .find(".product-price")
         .text() + "</span>";
-
+      
       var remove = "<span class='remove'> X </span>";
       $("#list-item").append(
         "<li>" + name + "&#09; - &#09;" + price +"&#09; - &#09;" + remove + "</li>"
@@ -41,9 +38,9 @@ $(function() {
     $(".eachPrice").each(function() {
         var pricePerItem = parseFloat($(this).text().replace('ksh', ''));
       totalPrice += pricePerItem;
-
+   
     });
-
+    
     $("#total-price").text("ksh" + totalPrice);
 
     //remove items from basket
@@ -56,22 +53,22 @@ $(function() {
     $(".eachPrice").each(function() {
         var pricePerItem = parseFloat($(this).text().replace('ksh', ''));
       totalPrice += pricePerItem;
-
+   
     });
-
+    
     $("#total-price").text("ksh" + totalPrice);
       // same here again re-calculate existing items
 
      var totalItem = $("#list-item").children().length;
       if(totalItem>0){
-
+      
       $("#items-basket").text(totalItem).css('display', 'table');
       }
       else{
          $("#items-basket").css('display', 'none');
           $("#emptyCart").css('display', 'table');
       }
-
+      
     });
   });
 })(jQuery); // End of use strict
@@ -124,7 +121,7 @@ $("#vs").dblclick(function(){
   $("#visab").hide();
 });
 function vs(){
-
+  
   prompt("PLEASE ENTER YOUR CARD SECURITY PIN")
   alert("THANK YOU FOR SHOPPING WITH US ")
 }
